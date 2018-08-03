@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # my gems uses in project
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'certified'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
