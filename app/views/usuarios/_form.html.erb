@@ -1,0 +1,8 @@
+<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :name, label: "Nombre de usuario", input_html: { class: "form-control" } %>
+  <%= f.input :last_name, label: "Apellido", input_html: { class: "form-control" } %>
+  <%= f.input :bio, label: "Agrega una biografia sobre tí", input_html: { class: "form-control" } %>
+  <%= f.input :url, label: "Sitio web(etc)", input_html: { class: "form-control" } %>
+  <%= f.input :email, label: "Correo electronico", input_html: { class: "form-control" } %>
+  <%= f.button :submit, "Guardar cambios", class: "btn btn-success" %>
+<% end %>
