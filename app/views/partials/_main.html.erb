@@ -8,6 +8,9 @@
     <ul class="navbar-nav float-left">
       <% if user_signed_in? %>
         <li class="nav-item active">
+          <a><%= link_to "Mi perfil", current_user, class: "nav-link" %></a>
+        </li>
+        <li class="nav-item active">
           <a><%= link_to "Crear nota", new_note_path, class: "nav-link" %></a>
         </li>
         <li class="nav-item active">
