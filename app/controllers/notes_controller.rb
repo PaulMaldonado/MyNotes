@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
-  before_action :find_note, only: [:show, :edit, :update, :destroy]
+  before_action :find_notes, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @note = Note.all.order("created_at DESC")
+    redirect_to root_path
   end
 
   def new
@@ -11,7 +11,7 @@ class NotesController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def create
@@ -29,10 +29,10 @@ class NotesController < ApplicationController
   end
 
   def update
-    @note = Note.update(note_params)
+    @note = current_user.notes.build(note_params)
 
     if @note.save
-      redirect_to @save
+      redirect_to @note
     else
       render :edit
     end
@@ -40,12 +40,12 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to @note_path
+    redirect_to root_path
   end
 
   private
 
-  def find_note
+  def find_notes
     @note = Note.find(params[:id])
   end
 

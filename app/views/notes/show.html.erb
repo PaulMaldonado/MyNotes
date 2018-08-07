@@ -1,7 +1,18 @@
-<p>
-  <strong><%= @note.title %></strong>
-</p>
+<section>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <strong><%= @note.title %></strong>
+      </div>
 
-<p>
-  <strong><%= @note.description %></strong>
-</p>
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= @note.description %></strong></h5>
+        <p class="card-text current-user">
+          creado por: <%= current_user.name %>
+        </p>
+        <%= link_to "Editar", edit_note_path(@note), class: "btn btn-success" %>
+        <%= link_to "Eliminar", note_path(@note), class: "btn btn-danger", method: :delete, data: { confirm: "Estas seguro?" } %>
+      </div>
+    </div>
+  </div>
+</section>

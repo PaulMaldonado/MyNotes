@@ -1,6 +1,7 @@
 <div class="container">
-  <h2><%= name %> Nota</h2>
   <div class="card">
+    <h2 class="text-center"><%= name %> Nota</h2>
+    <br><br>
     <div class="card-body">
       <%= simple_form_for(@note, html: { class: 'form-horizontal' }) do |f| %>
         <%= f.input :title, label: "Título", input_html: { class: "form-control" } %>

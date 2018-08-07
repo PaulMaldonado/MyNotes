@@ -1,1 +1,26 @@
-<h1>Welcome to Notes!</h1>
+<article>
+  <% @notes.each do |note| %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-title">
+                  <h3><%= note.title %></h3>
+                <div class="card-body">
+                  <p><%= note.description %></p>
+                </div>
+              </div>
+
+              <div class="links">
+
+                <% if user_signed_in? %>
+                  <%= link_to "Editar", edit_note_path(note), class: "btn btn-success" %>
+                  <%= link_to "Eliminar", note_path(note), class: "btn btn-danger", method: :delete, data: { confirm: "Estas seguro?" } %>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</article>
